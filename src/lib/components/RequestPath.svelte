@@ -6,11 +6,11 @@
 		{ x: 164, y: 36, t: 'AgentDefinition', s: 'kubectl or Git' },
 		{ x: 304, y: 36, t: 'Control plane', s: 'policy check' },
 		{ x: 24, y: 172, t: 'Caller', s: 'script, webhook' },
-		{ x: 164, y: 172, t: 'A2A gate', s: 'caller rule, audit' },
+		{ x: 164, y: 172, t: 'A2A gate', s: 'checks callers' },
 		{ x: 304, y: 172, t: 'Agent', s: 'gVisor sandbox', kind: 'agent' },
 		{ x: 444, y: 92, t: 'Model gateway', s: 'own key, budget' },
 		{ x: 444, y: 172, t: 'Tool gateway', s: 'tool profile' },
-		{ x: 444, y: 252, t: 'Memory, knowledge', s: 'PostgreSQL' },
+		{ x: 444, y: 252, t: 'Knowledge', s: 'and memory' },
 		{ x: 304, y: 300, t: 'Traces and cost', s: 'OpenTelemetry', kind: 'quiet' },
 		{ x: 596, y: 92, t: 'Model', s: 'hosted or yours', kind: 'outside' },
 		{ x: 596, y: 324, t: 'Other hosts', s: 'not on the list', kind: 'deny' }
