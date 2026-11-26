@@ -58,7 +58,7 @@
 			d: 'A ServiceAccount token or a key, and a rule for which agents and user ids.'
 		},
 		{
-			t: 'An audit record',
+			t: 'An audit trail',
 			d: 'One line per request at the gate and one per tool call, without message text.'
 		},
 		{
@@ -73,7 +73,7 @@
 </script>
 
 <Seo
-	title="OpenAgentix: governed AI agents on your own Kubernetes"
+	title="OpenAgentix: open-source AI agent governance on Kubernetes"
 	description="OpenAgentix is an open-source control plane for running AI agents on Kubernetes. Each agent gets its own model key and budget, only approved tools, and no outbound access you did not allow."
 	path="/"
 	jsonld={[jsonldOrganization(), ...jsonldSoftware(), jsonldFaq(HOME_FAQ)]}
@@ -83,12 +83,19 @@
 <section class="hero grid-bg" aria-labelledby="hero-title">
 	<div class="wrap hero-grid">
 		<div class="hero-copy">
-			<p class="badge"><span class="chip chip-accent">Open source</span> Apache-2.0 · Kubernetes-native</p>
+			<p class="badge">
+				<span class="chip chip-accent">Open source</span> Apache-2.0 · Kubernetes-native · For platform teams
+			</p>
 			<h1 id="hero-title" class="h-display">Run AI agents on your own Kubernetes, under your rules.</h1>
 			<p class="lede hero-lede">
-				OpenAgentix is an open-source control plane for AI agents. Each agent gets its own model key and
-				budget, only the tools you approved, and no outbound access you did not allow. Memory, knowledge and
-				traces stay in your cluster.
+				OpenAgentix is an open-source control plane for agent governance on Kubernetes. Each agent gets its
+				own model key and token budget, only the MCP tools you approved, and no outbound access you did not
+				allow. Callers are checked at an A2A gate, with an audit trail. Bring your own A2A agent, or describe
+				one in YAML.
+			</p>
+			<p class="proof-line">
+				Early and not production ready.
+				<a href={docs('what-works')}>See what works today, and what does not yet</a>.
 			</p>
 			<div class="ctas">
 				<a class="btn btn-primary" href="#quick-start">Try the quick start <Icon name="arrow" /></a>
@@ -108,7 +115,10 @@
 				<li><Icon name="check" />One tool profile, and callers checked at the A2A gate</li>
 				<li><Icon name="check" />The console, traces and cost per agent</li>
 			</ul>
-			<p class="cmd-note">Measured in CI on a hosted runner, from an empty cache: 6 min 34 s.</p>
+			<p class="cmd-note">
+				About 5 minutes to the first answer: 301 to 320 s in CI on a hosted runner, kind, empty cache. A
+				laptop was not timed.
+			</p>
 		</div>
 	</div>
 	{#if heroShot}
@@ -409,8 +419,15 @@
 				<li>
 					One maintainer. The last release is v0.2.0; the control plane, console and quick start are on main.
 				</li>
-				<li>Proven on a single-node kind cluster, and the quick start in CI on a hosted runner.</li>
-				<li>Not yet tried on k3s, a managed cloud, OpenShift, several nodes or under load.</li>
+				<li>
+					Proven on a single-node kind cluster, and the quick start in CI on hosted runners, on kind and on
+					k3s.
+				</li>
+				<li>
+					Bring your own A2A agent is proven in CI on kind only. Release signing is unproven until a real tag
+					runs.
+				</li>
+				<li>Not yet run on a managed cloud (GKE, EKS, AKS), OpenShift, several nodes or under load.</li>
 				<li>
 					Databases are development setups and most services run one replica. It is not production ready.
 				</li>
@@ -422,7 +439,8 @@
 			<ol>
 				<li>
 					<span class="rel">0.3</span><span>
-						Bring your own A2A agent, built with any framework. Install tested on kind and k3s in CI.
+						Control plane and console proven on a cluster. Bring your own agent beyond CI. A managed cloud
+						install.
 					</span>
 				</li>
 				<li>
@@ -473,6 +491,23 @@
 				<Icon name="git" />
 				<h3><a href={repoFile('CONTRIBUTING.md')}>Contribute</a></h3>
 				<p>Docs, tests, an adapter for another store or notification target. Sign off each commit.</p>
+			</li>
+			<li class="card">
+				<Icon name="check" />
+				<h3><a href={docs('guide/first-contribution')}>First contribution</a></h3>
+				<p>
+					A guide that takes about an hour, and
+					<a href={`${REPO}/labels/good%20first%20issue`}>good first issues</a> with the files and tests named.
+				</p>
+			</li>
+			<li class="card">
+				<Icon name="users" />
+				<h3><a href={repoFile('ADOPTERS.md')}>Using it? Say so</a></h3>
+				<p>
+					Add a row to ADOPTERS.md ("evaluating" counts) or post in
+					<a href={`${REPO}/discussions/categories/show-and-tell`}>Show and tell</a>. Tell us your use case to
+					help shape 0.3.
+				</p>
 			</li>
 			<li class="card">
 				<Icon name="map" />
@@ -545,6 +580,14 @@
 	}
 	.ctas.center {
 		justify-content: center;
+	}
+	.proof-line {
+		margin-top: 1rem;
+		font-size: 0.9375rem;
+		color: var(--c-text-2);
+	}
+	.proof-line a {
+		font-weight: 600;
 	}
 	.cmd-note,
 	.shot-note {

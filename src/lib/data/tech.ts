@@ -60,7 +60,7 @@ export const TECH: Tech[] = [
 		url: 'https://modelcontextprotocol.io',
 		what: 'An open standard for connecting AI applications to tools and data.',
 		use: 'How agents call tools. Any MCP server can be added behind the tool gateway.',
-		foundation: 'LF Projects (Linux Foundation)',
+		foundation: 'Agentic AI Foundation (Linux Foundation)',
 		licence: 'Apache-2.0',
 		group: 'standards'
 	},
