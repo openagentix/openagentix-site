@@ -12,7 +12,8 @@
 			items: [
 				'Control plane: AgentDefinition, platform policy, admission policies',
 				'Web console with the agent builder (API proven live, UI tested in demo mode)',
-				'Quick start with no model key and no chat token, proven in CI',
+				'Quick start with no model key and no chat token, proven in CI on kind and k3s',
+				'Bring your own A2A agent (a digest-pinned container), proven in CI on kind, off by default',
 				'Model gateway, tool gateway and profiles, egress per agent, A2A gate',
 				'Memory, knowledge base, knowledge graph, webhooks, schedules, cost and traces'
 			]
@@ -21,9 +22,9 @@
 			when: 'Next',
 			rel: '0.3',
 			items: [
-				'Bring your own A2A agent: a container built with any framework, under the same policy, tool profile, egress rules and gateway key',
+				'Bring your own agent beyond CI: a registry pull and egress allowlists for container agents',
 				'Control plane and console proven on a cluster',
-				'A small, fast install profile, tested on kind and k3s in CI, then a managed cloud, with OpenShift-compatible manifests',
+				'Install on a managed cloud, and the OpenShift manifests run on OpenShift (both tested offline only today)',
 				'AgentAccess and Schedule resources'
 			]
 		},
@@ -50,7 +51,7 @@
 
 <Seo
 	title="Roadmap"
-	description="What OpenAgentix has now, and what is planned next: bring your own A2A agent in 0.3, identity and human approval in 0.4. Plans can change; the decision records say why."
+	description="What OpenAgentix has now, and what is planned next: the control plane proven on a cluster and a managed cloud install in 0.3, identity and human approval in 0.4. Plans can change; the decision records say why."
 	path="/roadmap/"
 	jsonld={[jsonldBreadcrumb('Roadmap', '/roadmap/')]}
 />

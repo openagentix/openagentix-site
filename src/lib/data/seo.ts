@@ -6,7 +6,7 @@ export type QA = { q: string; a: string };
 export const HOME_FAQ: QA[] = [
 	{
 		q: 'Is OpenAgentix production ready?',
-		a: 'No. It is an early project with one maintainer. It was proven on one single-node kind cluster, and the quick start in CI on a hosted runner. It was not tested on k3s, a managed cloud, OpenShift, several nodes or under load.'
+		a: 'No. It is an early project with one maintainer. It was proven on one single-node kind cluster, and the quick start in CI on hosted runners, on kind and on k3s. It was not run on a managed cloud, OpenShift, several nodes or under load.'
 	},
 	{
 		q: 'Does data leave my cluster?',
@@ -18,7 +18,7 @@ export const HOME_FAQ: QA[] = [
 	},
 	{
 		q: 'Do I need a specific agent framework?',
-		a: 'Today agents run on kagent with Agent Substrate, and you describe them in an AgentDefinition instead of writing framework code. Bringing your own agent, built with any framework as a container that speaks A2A, is planned for release 0.3.'
+		a: 'No. You can describe an agent in an AgentDefinition and it runs on kagent with Agent Substrate, with no framework code. Or bring your own agent: a digest-pinned container that speaks A2A 1.0, built with any framework, under the same key, budget, gate and tool profile. That path is opt-in and proven in CI on kind only.'
 	},
 	{
 		q: 'What does it cost?',

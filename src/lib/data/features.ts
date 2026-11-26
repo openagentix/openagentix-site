@@ -203,8 +203,25 @@ export const FEATURES: Feature[] = [
 			'Ask the agent with hack/ask.sh. The answer comes back through the A2A gate.'
 		],
 		proof:
-			'In CI on a hosted runner, with nothing cached: install in 6 min 34 s, then 10 smoke checks passed.',
+			'In CI on a hosted runner, with nothing cached: first answer 301 to 320 s after the start of the install on kind, then the smoke checks passed. Also passed on k3s in CI.',
 		status: 'Proven in CI',
 		doc: 'features/quick-start'
+	},
+	{
+		id: 'byo',
+		icon: 'box',
+		title: 'Bring your own agent',
+		short:
+			'Run your own container that speaks A2A 1.0, built with any framework, under the same key, budget, gate and tool profile.',
+		points: [
+			'The image is pinned by digest and comes from a registry prefix the platform allows.',
+			'It runs as a non-root user with a read-only root file system and no Kubernetes token.',
+			'Calls reach it through the A2A gate. Its model calls go through its own gateway key.',
+			'A conformance checker tests the A2A side before you deploy.'
+		],
+		proof:
+			'In CI on kind with the stub model: the sample agent was Ready 10 s after creation, answered through the gate and the gateway, and listed its tools through a tool profile. Definitions with a tag or an image outside the allowed prefix were refused.',
+		status: 'Proven in CI on kind, off by default',
+		doc: 'guide/bring-your-own-agent'
 	}
 ];

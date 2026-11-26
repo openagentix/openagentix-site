@@ -34,7 +34,7 @@ writeFileSync(
 
 > OpenAgentix is an open-source (Apache-2.0) control plane for running AI agents on Kubernetes under the rules a platform team sets. Each agent gets its own model gateway key and token budget, sees only the tools in an approved tool profile, and reaches only the outbound hosts it is allowed. Callers are checked by an A2A gate that writes an audit line per request. Memory, knowledge, traces and metrics stay in the cluster; calls to a hosted model provider leave it, a model you host does not.
 
-Status: early project with one maintainer. Proven on a single-node kind cluster, and the keyless quick start in CI on a hosted runner (6 min 34 s). Not tested on k3s, managed clouds, OpenShift, several nodes or under load. Not production ready. Agents run on kagent with Agent Substrate (gVisor sandboxes). Bringing your own A2A agent is planned for release 0.3.
+Status: early project with one maintainer. Not production ready. Proven on a single-node kind cluster, and the keyless quick start in CI on hosted runners on kind and k3s (first answer about 5 minutes after the start of the install, 301 to 320 s on kind). Not run on a managed cloud, OpenShift, several nodes or under load. Agents run on kagent with Agent Substrate (gVisor sandboxes). Bring your own A2A agent (a digest-pinned container speaking A2A 1.0) is proven in CI on kind only, off by default. Release signing is unproven until a real tag runs.
 
 Quick start (needs docker, kind, kubectl, helm, jq, the Python yq, openssl, curl, python3):
 
